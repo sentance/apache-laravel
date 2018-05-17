@@ -1,0 +1,20 @@
+stages:
+  - build
+
+variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_JOB_ID
+  IMAGE_LATEST: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+  GIT_SSL_NO_VERIFY: "true"
+  SITE: registry.k-3soft.com
+
+build:
+   image: docker:latest
+   services:
+    - docker:dind
+   stage: build
+   script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.k-3soft.com
+    - docker build -t $IMAGE_TAG .
+    - docker tag $IMAGE_TAG $IMAGE_LATEST
+    - docker push $IMAGE_TAG 
+    - docker push $IMAGE_LATEST
