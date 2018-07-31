@@ -34,6 +34,7 @@ RUN apt-get update \
  apt-utils \
  cron \
  rsyslog \
+ supervisor \
  jq \
  && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
