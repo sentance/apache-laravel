@@ -9,7 +9,7 @@ ENV APACHE_RUN_DIR /var/www/html
 # Install basic requirements
 #
 RUN apt-get update \
- && apt-get install -y \
+ && apt-get install -y --no-install-recommends \
  curl \
  apt-transport-https \
  git \
@@ -42,12 +42,10 @@ RUN apt-get update \
 # Install Node (with NPM)
 #
 # https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
-RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
-RUN apt-get update \
- && apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && apt-get install -y --no-install-recommends nodejs && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY --from=composer:1.5 /usr/bin/composer /usr/bin/composer
 
 # Install additional php extensions
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
