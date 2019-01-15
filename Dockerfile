@@ -44,7 +44,10 @@ RUN echo "@main38 http://dl-cdn.alpinelinux.org/alpine/v3.8/main" >> /etc/apk/re
         freetype-dev \
         libpng-dev \
         libjpeg-turbo-dev 
-    
+
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories \
+    && apk --no-cache add ssmtp mailutils
+
 RUN apk add --update ffmpeg
 
 # Install Composer
