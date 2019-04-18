@@ -36,7 +36,6 @@ RUN apt-get update \
  rsyslog \
  supervisor \
  jq \
- http \
  && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #
