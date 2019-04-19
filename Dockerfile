@@ -45,7 +45,7 @@ RUN apt-get update \
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && apt-get install -y --no-install-recommends nodejs && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install Composer
-COPY --from=composer:1.5 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Install additional php extensions
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
