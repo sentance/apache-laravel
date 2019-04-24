@@ -1,5 +1,9 @@
 FROM php:7.3-apache-stretch
 
+ENV APACHE_DOCROOT /var/www/html/public
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_RUN_DIR /var/www/html
 ENV COMPOSER_HOME /usr/bin/composer
 WORKDIR /var/www/html
 
