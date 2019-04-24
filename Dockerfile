@@ -31,6 +31,7 @@ RUN apt-get update \
  rsyslog \
  supervisor \
  jq \
+ libzip-dev \
  && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #
