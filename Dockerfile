@@ -71,5 +71,5 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
       zip \
     && pecl install redis apcu \
     && docker-php-ext-enable redis apcu \
-    && pecl install mcrypt-1.0.1 \
+    && pecl install mcrypt-1.0.2 \
     && docker-php-ext-enable mcrypt
