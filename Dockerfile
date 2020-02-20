@@ -36,6 +36,9 @@ RUN apt-get update \
  rsyslog \
  supervisor \
  jq \
+ telnet \
+ ping \
+ nano\
  && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #
