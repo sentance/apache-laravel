@@ -37,7 +37,6 @@ RUN apt-get update \
  supervisor \
  jq \
  telnet \
- ping \
  nano\
  && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
