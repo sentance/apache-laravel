@@ -44,6 +44,7 @@ RUN apt-get update \
  pngquant \
  gifsicle \
  libtool \
+ libmagickwand-dev \
 
  && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
