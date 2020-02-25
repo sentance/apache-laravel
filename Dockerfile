@@ -38,6 +38,13 @@ RUN apt-get update \
  jq \
  telnet \
  nano\
+ imagemagick \
+ jpegoptim \
+ optipng \
+ pngquant \
+ gifsicle \
+ libtool \
+
  && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #
@@ -75,6 +82,7 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
       sysvsem \
       sysvshm \
       zip \
+      imagick \
     && pecl install redis apcu \
     && docker-php-ext-enable redis apcu \
     && pecl install mcrypt-1.0.1 \
