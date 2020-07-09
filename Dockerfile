@@ -50,14 +50,9 @@ RUN apt-get update \
 
  && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+
 RUN locale-gen en_US.UTF-8
-COPY ./default_locale /etc/default/locale
-RUN chmod 0755 /etc/default/locale
-
-ENV LC_ALL=en_US.UTF-8
-ENV LANG=en_US.UTF-8
-ENV LANGUAGE=en_US.UTF-8
-
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 #
 # Install Node (with NPM)
