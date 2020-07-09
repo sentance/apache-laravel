@@ -4,8 +4,7 @@ ENV APACHE_DOCROOT /var/www/html/public
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_RUN_DIR /var/www/html
-ENV LANG en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
+
 
 #
 # Install basic requirements
@@ -47,8 +46,13 @@ RUN apt-get update \
  gifsicle \
  libtool \
  libmagickwand-dev \
+ locales \
 
  && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+
 
 #
 # Install Node (with NPM)
