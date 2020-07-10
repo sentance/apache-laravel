@@ -101,3 +101,5 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
     && docker-php-ext-enable redis apcu imagick \
     && pecl install mcrypt-1.0.1 \
     && docker-php-ext-enable mcrypt
+    
+ADD php.ini /usr/local/etc/php/
